@@ -30,13 +30,13 @@ c=gd.gdelt()
   #                coverage=True,
    #               normcols=True)
 
-gnis=pd.read_csv("/home/iquantela/gnis_data.csv")
+gnis=pd.read_csv("gnis_data.csv")
 done = {}
 
 def filter_location(place,data):
     gnisid=get_gnisid(place,gnis)
    # s=gnisid[gnis.location.str.contains(place,case=False, regex=True)]['featureid'].iloc[0]
-    return (data[data.actiongeofeatureid==gnisid.iloc[0]])
+    return (data[data.ActionGeo_FeatureID==gnisid.iloc[0]])
 
 def get_gnisid(place, gnis):
     s=gnis[gnis.location.str.contains(place,case=False, regex=True)]['featureid']
